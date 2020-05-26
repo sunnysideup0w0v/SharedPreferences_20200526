@@ -3,6 +3,7 @@ package com.example.sharedpreferences_20200526;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -46,6 +47,13 @@ public class MainActivity extends BaseActivity {
 //                else {
 //                    Toast.makeText(mContext, "아이디 저장 불필요", Toast.LENGTH_SHORT).show();
 //                }
+            }
+        });
+        binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mContext,SignUpActivity.class);
+                startActivity(myIntent);
             }
         });
 
