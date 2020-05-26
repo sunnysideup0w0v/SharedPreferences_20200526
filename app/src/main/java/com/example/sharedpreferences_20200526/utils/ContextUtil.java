@@ -25,4 +25,22 @@ public class ContextUtil {
         // 메모장에 적어둔 아이디 가져오기.
         return pref.getString(USER_ID, "");
     }
+
+
+
+    // 체크박스의 체크 항목.
+    private static final String ID_SAVE = "ID_SAVE";
+
+    public static void setIdSave(Context context, boolean needSave){
+        SharedPreferences pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
+        pref.edit().putBoolean(ID_SAVE, needSave).apply();
+    }
+
+    public static boolean isIdSave(Context context){
+        SharedPreferences pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE);
+        return pref.getBoolean(ID_SAVE, false);
+    }
+
+
+
 }

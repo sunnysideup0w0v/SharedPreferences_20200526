@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.sharedpreferences_20200526.databinding.ActivityMainBinding;
@@ -22,6 +23,17 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+        binding.idSaveCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if(isChecked){
+//                    ContextUtil.setIdSave(mContext, true);
+//                } else {
+//                    ContextUtil.setIdSave(mContext, false);
+//                }
+                ContextUtil.setIdSave(mContext, isChecked);
+            }
+        });
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,9 +42,10 @@ public class MainActivity extends BaseActivity {
 //                    Toast.makeText(mContext, "아이디 저장 필요", Toast.LENGTH_SHORT).show();
                     String inputId = binding.emailEdt.getText().toString();
                     ContextUtil.setUserId(mContext, inputId);
-                } else {
-                    Toast.makeText(mContext, "아이디 저장 불필요", Toast.LENGTH_SHORT).show();
                 }
+//                else {
+//                    Toast.makeText(mContext, "아이디 저장 불필요", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
@@ -41,5 +54,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setValues() {
         binding.emailEdt.setText(ContextUtil.getUserId(mContext));
+        binding.idSaveCheckBox.setChecked(ContextUtil.isIdSave(mContext));
     }
 }
