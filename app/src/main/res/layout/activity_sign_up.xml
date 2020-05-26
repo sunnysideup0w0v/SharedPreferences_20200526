@@ -159,22 +159,26 @@
                             android:textSize="17sp"/>
                     </LinearLayout>
                     <RadioGroup
+                        android:id="@+id/workRadioGroup"
                         android:paddingTop="35dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <RadioButton
+                            android:id="@+id/fullTimeBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="풀타임"
                             android:textSize="15sp"/>
                         <RadioButton
+                            android:id="@+id/partTimeBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="파트타임(재직중)"
                             android:textSize="15sp"/>
                     </RadioGroup>
                     <Button
+                        android:id="@+id/nextBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="다음"
